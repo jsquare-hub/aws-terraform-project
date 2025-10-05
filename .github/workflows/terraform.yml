@@ -20,9 +20,9 @@ jobs:
 
       - name: Write tfvars file from secret
         run: echo "${{ secrets.TF_VARS_CONTENT }}" > terraform.tfvars
-        
+
       - name: Terraform Init
         run: terraform init
 
       - name: Terraform Plan
-        run: terraform plan
+        run: terraform plan -var-file="terraform.tfvars"
