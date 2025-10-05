@@ -1,5 +1,18 @@
 # .gitignore
+# Ignore Terraform working directory
 .terraform/
+
+# Ignore Terraform state files
 *.tfstate
 *.tfstate.backup
-terraform.tfvars
+
+# Ignore variable definitions (if used)
+*.tfvars
+
+# Terraform crash logs
+crash.log
+
+# CLI configuration files
+.terraformrc
+terraform.rc
+
