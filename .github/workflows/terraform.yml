@@ -18,6 +18,9 @@ jobs:
         with:
           terraform_version: 1.5.0
 
+      - name: Write tfvars file from secret
+        run: echo "${{ secrets.TF_VARS_CONTENT }}" > terraform.tfvars
+        
       - name: Terraform Init
         run: terraform init
 
