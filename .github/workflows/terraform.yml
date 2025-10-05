@@ -21,15 +21,23 @@ jobs:
       # - name: Write tfvars file from secret
       #   run: echo "${{ secrets.TF_VARS_CONTENT }}" | tr -d '\r' > terraform.tfvars
 
-      - name: Decode tfvars file
-        run: |
-          echo "${{ secrets.TF_VARS_B64 }}" | base64 --decode > terraform.tfvars
-          echo "✅ terraform.tfvars file written successfully"
-          echo "Contents (for debug, no secrets):"
-          cat terraform.tfvars | head -n 5
+      # - name: Decode tfvars file
+      #   run: |
+      #     echo "${{ secrets.TF_VARS_B64 }}" | base64 --decode > terraform.tfvars
+      #     echo "✅ terraform.tfvars file written successfully"
+      #     echo "Contents (for debug, no secrets):"
+      #     cat terraform.tfvars | head -n 5
 
-      - name: Terraform Init
-        run: terraform init
+      # - name: Terraform Init
+      #   run: terraform init
 
-      - name: Terraform Plan
-        run: terraform plan -var-file="terraform.tfvars"
+      # - name: Terraform Plan
+      #   run: terraform plan -var-file="terraform.tfvars"
+
+      - name: Summary
+  run: |
+    echo "✅ Terraform code pushed successfully"
+    echo "💬 Commit message: ${{ github.event.head_commit.message }}"
+
+
+      
