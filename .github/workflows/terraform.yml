@@ -6,6 +6,19 @@ on:
     branches:
       - main
 
+jobs:
+  summary:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Summary
+        run: |
+          echo "✅ Terraform code pushed successfully"
+          echo "💬 Commit message: ${{ github.event.head_commit.message }}"
+
+
 # jobs:
 #   terraform:
 #     runs-on: ubuntu-latest
@@ -34,10 +47,7 @@ on:
       # - name: Terraform Plan
       #   run: terraform plan -var-file="terraform.tfvars"
 
-- name: Summary
-  run: |
-    echo "✅ Terraform code pushed successfully"
-    echo "💬 Commit message: ${{ github.event.head_commit.message }}"
+
 
 
 
